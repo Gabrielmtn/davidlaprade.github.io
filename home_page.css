@@ -77,14 +77,10 @@ header p {
 }
 
 #info_box_title {
-	margin-left: 5%;
-	margin-bottom: auto;
 	display: inline-block;
-	height: 20%;
 	font-family: 'Ubuntu', sans-serif;
 	color: white;
 	font-size: 3em;
-	border: 2px solid yellow;
 }
 
 #circle_photo_container {
