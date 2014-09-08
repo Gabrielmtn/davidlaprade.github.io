@@ -1,3 +1,12 @@
-h1:hover {
+p:hover {
 	color: red;
+}
+
+p {
+	font-family: 'Ubuntu', sans-serif;
+	color: white;
+	font-size: 3em;
+	letter-spacing: 0.5em;
+	text-align: center;
+	margin: auto;
 }
