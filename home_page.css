@@ -71,7 +71,7 @@ header p {
 .info_box {
 	width: 100%;
 	height: 20em;
-	background-color: #24272c;
+	background-image: linear-gradient(180deg, #24272c, #5D5D5D);
 	box-sizing: border-box;
 	border-top: .65em solid white;
 }

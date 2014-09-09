@@ -12,7 +12,14 @@ body {
 }
 
 header {
-	margin-top: 45%;
+	margin-top: 9.5em;
+	margin-bottom: 1em;
 	margin-left: 2%;
 	box-sizing: border-box;
+}
+
+#content {
+	border-top: .1em solid white;
+	height: 5em;
+	background-color: #24272c;
 }
