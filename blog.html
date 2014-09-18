@@ -33,7 +33,7 @@
 					</div>
 					<p>But the core of this method once again doesn't return the new array object you're interested in. So this can't be strung together.</p>
 
-					<p>Now, Ruby's Array#find_all method works well for the job just described since the objects that you want are in the old array.</p>
+					<p>Now, Ruby's <code>Array#find_all</code> method works well for the job just described since the objects that you want are in the old array.</p>
 					<div class="code_block">
 						array = [1,2,3,4,5,6]</br>
 						array.find_all {|x| x>3}<br><br>
@@ -63,7 +63,7 @@
 
 					<p>Very handy!</p>
 
-					<p>The Enumerator#with_object method can also be used to elegantly perform tasks that would take a lot of code using just map and find. Suppose, for instance, that you wanted to find the coordinates of each occurence of a given object in a 2D array; e.g. if I wanted to find the coordinates of "foo" in:</p>
+					<p>The <code>Enumerator#with_object</code> method can also be used to elegantly perform tasks that would take a lot of code using just map and find. Suppose, for instance, that you wanted to find the coordinates of each occurence of a given object in a 2D array; e.g. if I wanted to find the coordinates of "foo" in:</p>
 					<div class="code_block">
 					array = [["foo", "bar", "lobster"], ["camel", "trombone", "foo"]]
 					</div>
@@ -79,7 +79,7 @@
 					=> [[0,0],[1,2]]
 					</div>
 
-					<p>Inelegant, to say the least! But Enumerator#with_object affords a more direct solution:</p>
+					<p>Inelegant, to say the least! But <code>Enumerator#with_object</code> affords a more direct solution:</p>
 					<div class="code_block">
 					array = [["foo", "bar", "lobster"], ["camel", "trombone", "foo"]]<br><br>
 					array.each.with_index.with_object([]) {|(row, row_id), o|<br>
