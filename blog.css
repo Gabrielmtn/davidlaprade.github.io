@@ -126,6 +126,10 @@ body {
 	width: 90%;
 }
 
+.post_panel .post_content a {
+	color: red;
+}
+
 .post_panel code {
 	background-color: #141414;
 	color: #FFFF99;
@@ -135,11 +139,12 @@ body {
 
 .post_panel .code_block {
 	font-family: monospace;
+	border-radius: 5px;
 	font-size: 17px;
 	margin: 0;
 	margin-left: 50px;
 	padding: 5px;
-	display: inline-block;
+	display: block;
 	background-color: #141414;
 	color: #FFFF99;
 	/*   to indent, both are required   */
