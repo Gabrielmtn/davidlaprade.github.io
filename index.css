@@ -1,3 +1,7 @@
+* {
+	/*border: 2px dashed yellow;*/
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -27,14 +31,16 @@ header p {
 	font-weight: bold;
 	font-style: italic;
 	color: white;
-	height: 45%;
+	height: 30%;
 }
 
 #header_content {
 	width: 85%;
 	margin: auto;
 	margin-top: 2%;
+	margin-bottom: 0;
 	height: 35%;
+	text-align: center;
 }
 
 .content_box {
@@ -44,7 +50,8 @@ header p {
 	border-radius: 10px;
 	border: 20px solid white;
 	display: inline-block;
-	margin-left: 4.5%;
+	margin-left: 2%;
+	margin-right: 2%;
 
 	/*will set just background opacity to 0.3*/
 	/*background-color: gray;*/
@@ -54,7 +61,8 @@ header p {
 .content_box p {
 	font-family: 'Ubuntu', sans-serif;
 	color: white;
-	font-size: 3em;
+	font-size: 50px;
+	font-weight: bold;
 	margin: auto;
 	margin-top: 30%;
 	letter-spacing: 0.1em;
@@ -67,9 +75,9 @@ header p {
 }
 
 #scroll_down {
-	width: 10%;
+	width: 22%;
 	margin: auto;
-	margin-top: 2%;
+	margin-top: 4%;
 }
 
 #scroll_down img {
