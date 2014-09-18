@@ -88,9 +88,11 @@ body {
 
 .project_panel img {
 	border-radius: 10px;
+	border: 2px solid white;
 	display: inline-block;
 	margin: auto;
-	margin-top: 2%;
+	vertical-align: center;
+	margin-top: 1.25%;
 	width: 40%;
 	height: 90%;
 }
