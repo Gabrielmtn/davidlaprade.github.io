@@ -19,75 +19,74 @@
 				<h3 class="post_title">Ruby's "with_object" Enumerator method</h3>
 				<p class="post_date">Date: 9.13.14</p>
 				<div class="post_content">
-					<p>Suppose you want to create a new array from an old one--say, you want the new array to contain all and only those elements in the old array that are greater than 3. And suppose, for the sake of demonstration, that the old array contains some elements that aren't greater than 3. So, for instance, the old array might be:</br>
+					<p>Suppose you want to create a new array from an old one--say, you want the new array to contain all and only those elements in the old array that are greater than 3. And suppose that the old array contains some elements that aren't greater than 3. So, for instance, the old array might be:</br>
 					<div class="code_block">array = [1,2,3,4,5,6]</div></p>
 
 					<p>There are many reasons why something like <code>array.delete</code> isn't fit for this job. Reason (i): it requires you to pass in a value to delete from the array. And, in our case, we want to delete ANY value greater than 3--i.e. there might be far more values than we want/can specify! Reason (ii): <code>array.delete</code> changes the old array to create the new one. So, if you wanted to keep a record of what was in the old array, you'd have to do something like first create a duplicate. Inconveient. And finally, reason (iii): <code>array.delete</code> returns the value deleted, not the new array object--which is unhelpful when you're interested in stringing your functions together. (You are.)</p>
 
-					<p>Ruby's "map" and "collect" methods don't really do the kind of work we're interested in either. By hypothesis, you want to dispose of some of the old elements. And all array.map and array.collect do is change certain members--they don't get rid of memebrs. Still, you could try something like this:</p>
+					<p>Ruby's "map" and "collect" methods don't really do the kind of work we're interested in either. By hypothesis, you want to dispose of some of the old elements. And all <code>array.map</code> and <code>array.collect</code> do is change certain members--they don't get rid of memebrs. Still, you could try something like this:</p>
 					<div class="code_block">
 						array = [1,2,3,4,5,6]</br>
 						new = []</br>
-						array.map {|value| value > 3 ? new << value : value}</br>
-						new => [4,5,6]</br>
+						array.map {|value| value > 3 ? new << value : value}<br><br>
+						new => [4,5,6]
 					</div>
 					<p>But the core of this method once again doesn't return the new array object you're interested in. So this can't be strung together.</p>
 
-					<p>Now, Ruby's "find_all" method works well for the job just described since the objects that you want are in the old array.</p>
+					<p>Now, Ruby's Array#find_all method works well for the job just described since the objects that you want are in the old array.</p>
 					<div class="code_block">
 						array = [1,2,3,4,5,6]</br>
-						array.find_all {|x| x>3}</br>
+						array.find_all {|x| x>3}<br><br>
 						=> [4,5,6]
 					</div>
 
-					<p>But what if the new objects you want to include are not in the old array? What if you wanted the new array to contain just the objects in the old array greater than 3, multiplied by 2? To do this using array.find_all, you would need to tack on a .map function. For example:</br>
+					<p>But what if the new objects you want to include are not in the old array? What if you wanted the new array to contain just the objects in the old array greater than 3, multiplied by 2? To do this using <code>array.find_all</code>, you would need to tack on a .map function. For example:</p>
 					<div class="code_block">
 					array = [1,2,3,4,5,6]</br>
-					array.find_all {|x| x>3}.map {|x| x*2}</br>
+					array.find_all {|x| x>3}.map {|x| x*2}<br><br>
 					=> [8,10,12]
-					</div></p>
+					</div>
 
-					<p>And what if we wanted to append these new values to the end of another array?--say: to [4, 6]. We'd need to do something like:</br>
+					<p>And what if we wanted to append these new values to the end of another array?--say: to <code>[4, 6]</code>. We'd need to do something like:</p>
 					<div class="code_block">
 					array = [1,2,3,4,5,6]</br>
-					[4, 6] << array.find_all {|x| x>3}.map {|x| x*2}</br>
+					[4, 6] << array.find_all {|x| x>3}.map {|x| x*2}<br><br>
 					=> [4, 6, 8, 10, 12]
-					</div></p>
+					</div>
 
-					<p>This works well. But it would be nice if we could do everything in just one step. Enter the Enumerator method I have just discovered: "with_object". What "with_object" allows you to do is pass in an arbitrary object to the block, and then return that object afterwards. So, for example, we could pass [4,6] into the block directly, give it the name "o" and just put the items into it one by one as we iterate through the block, then get the modified object back. Like this:</br>
+					<p>This works well. But it would be nice if we could do everything in just one step. Enter the Enumerator method I have just discovered: "with_object". What "with_object" allows you to do is pass in an arbitrary object to the block, and then return that object afterwards. So, for example, we could pass <code>[4,6]</code> into the block directly, give it the name "o" and just put the items into it one by one as we iterate through the block, then get the modified object back. Like this:</p>
 					<div class="code_block">
 					array = [1,2,3,4,5,6]</br>
-					array.each.with_object([4,6]) {|x,o| o << x*2 if x>3}</br>
+					array.each.with_object([4,6]) {|x,o| o << x*2 if x>3}<br><br>
 					=> [4, 6, 8, 10, 12]
-					</div></p>
+					</div>
 
 					<p>Very handy!</p>
 
-					<p>The "with_object" method can also be used to elegantly perform tasks that would take a lot of code using just map and find. Suppose, for instance, that you wanted to find the coordinates of each occurence of a given object in a 2D array; e.g. if I wanted to find the coordinates of "foo" in:</br>
+					<p>The Enumerator#with_object method can also be used to elegantly perform tasks that would take a lot of code using just map and find. Suppose, for instance, that you wanted to find the coordinates of each occurence of a given object in a 2D array; e.g. if I wanted to find the coordinates of "foo" in:</p>
 					<div class="code_block">
 					array = [["foo", "bar", "lobster"], ["camel", "trombone", "foo"]]
-					</div></p>
+					</div>
 
-					<p>To do this using just map and find all, I would need to do something like this:</br>
+					<p>To do this using just map and find all, I would need to do something like this:</p>
 					<div class="code_block">
-					array = [["foo", "bar", "lobster"], ["camel", "trombone", "foo"]]</br>
+					array = [["foo", "bar", "lobster"], ["camel", "trombone", "foo"]]<br><br>
 					array.map.with_index{|row,row_index|<br>
 					&nbsp;&nbsp;&nbsp;&nbsp;row.map.with_index {|v,col_index|<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v=="foo" ? [row_index,col_index] : v}<br>
-					}<br>
-					.flatten(1).find_all {|x| x.class==Array}<br>
-					=> [[0,0],[1,2]]<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v=="foo" ? [row_index,col_index] : v<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+					}.flatten(1).find_all {|x| x.class==Array}<br><br>
+					=> [[0,0],[1,2]]
 					</div>
-					</p>
 
-					<p>Inelegant, to say the least! But "with_object" affords a more direct solution:</p>
+					<p>Inelegant, to say the least! But Enumerator#with_object affords a more direct solution:</p>
 					<div class="code_block">
-					array = [["foo", "bar", "lobster"], ["camel", "trombone", "foo"]]<br>
+					array = [["foo", "bar", "lobster"], ["camel", "trombone", "foo"]]<br><br>
 					array.each.with_index.with_object([]) {|(row, row_id), o|<br>
 					&nbsp;&nbsp;&nbsp;&nbsp;row.each.with_index {|value, col_id| <br>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o<<[row_id, col_id] if value == "foo"<br>
 					&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-					}
+					}<br><br>
 					=> [[0,0],[1,2]]
 					</div>
 
@@ -95,8 +94,8 @@
 
 				</div>
 			</div>
-			<div class="post_panel"></div>
-			<div class="post_panel"></div>
+<!-- 			<div class="post_panel"></div>
+			<div class="post_panel"></div -->
 
 		</div>
 	</body>

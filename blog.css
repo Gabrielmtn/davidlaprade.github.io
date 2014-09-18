@@ -120,7 +120,7 @@ body {
 
 .post_panel .post_content {
 	display: inline-block;
-	text-align: left;
+	text-align: justify;
 	font-size: 20px;
 	width: 90%;
 }
