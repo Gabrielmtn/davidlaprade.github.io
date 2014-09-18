@@ -13,11 +13,27 @@
 		<h1 id="title">BLOG.</h1>
 		<a href="index.html" id="home"><img src="home-icon.png" /></a>
 		<img id="scroll" src="scroll-down-arrow.png" />
-		<div id="content_panel">
+
+		<div class="content_panel">
 			<div id="icon_bar"></div>
+
+			<div class="post_panel">
+				<h3 class="post_title">Change Yo Self</h3>
+				<p class="post_date">Date: 9.18.14</p>
+				<div class="post_content">
+					<p>I was always curious as to why Ruby allows me to change "self" in this way:</p>
+					<div class="code_block">self.map! {|x| x*2}</div>
+					<p>And in this way:</p>
+					<div class="code_block">self.replace(self.map {|x| x*2})</div>
+					<p>But not in this way:</p>
+					<div class="code_block">self = self.map {|x| x*2}</div>
+					<p>Why doesn't Ruby allow me to change the object that the "self" variable points to, but does allow me to change the object's attributes?</p>
+				</div>
+			</div>
+
 			<div class="post_panel">
 				<h3 class="post_title">Ruby's "with_object" Enumerator method</h3>
-				<p class="post_date">Date: 9.13.14</p>
+				<p class="post_date">Date: 9.12.14</p>
 				<div class="post_content">
 					<p>Suppose you want to create a new array from an old one--say, you want the new array to contain all and only those elements in the old array that are greater than 3. And suppose that the old array contains some elements that aren't greater than 3. So, for instance, the old array might be:</br>
 					<div class="code_block">array = [1,2,3,4,5,6]</div></p>
@@ -94,9 +110,6 @@
 
 				</div>
 			</div>
-<!-- 			<div class="post_panel"></div>
-			<div class="post_panel"></div -->
-
 		</div>
 	</body>
 

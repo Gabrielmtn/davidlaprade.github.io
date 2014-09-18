@@ -63,7 +63,7 @@ body {
 }
 
 
-#content_panel {
+.content_panel {
 	border-top: 20px solid white;
 	z-index: 2;
 	position: absolute;
