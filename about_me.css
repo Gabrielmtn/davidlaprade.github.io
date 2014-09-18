@@ -30,6 +30,8 @@ header p {
 	height: 1350px;
 	width: 48%;
 	border-left: .25em solid white;
+	/*fallback color*/
+	background-color: #24272c;
 	background-image: linear-gradient(45deg, #24272c, #5D5D5D);
 }
 

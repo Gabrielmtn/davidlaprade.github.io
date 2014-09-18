@@ -1,0 +1,80 @@
+* {
+	/*border: 2px solid yellow;*/
+}
+
+body {
+	font-family: 'Ubuntu', sans-serif;
+	color: white;
+	font-size: 30px;
+	margin: 0px;
+	margin-top: 0;
+	padding: 0px;
+	height: 1200px;
+}
+
+#content_panel {
+	border-left: 5px solid white;
+	border-right: 5px solid white;
+	margin: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	width: 70%;
+	height: 100%;
+	/*fallback color*/
+	background: rgb(36, 39, 44);	
+	background: rgba(36, 39, 44, 0.9);
+	text-align: center;
+}
+
+#heading {
+	display: inline-block;
+	font-size: 2em;
+	margin: auto;
+	margin-top: 0;
+	margin-bottom: 20px;
+	padding-top: 5%;
+}
+
+.project_panel {
+	width: 60%;
+	height: 200px;
+	border-radius: 10px;
+	border: 5px solid white;
+	display: inline-block;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.project_panel p {
+	vertical-align: top;
+	font-size: 20px;
+	display: inline-block;
+	margin: auto;
+	margin-left: 5%;
+	margin-top: 20px;
+	width: 40%;
+	height: 90%;
+}
+
+.project_panel img {
+	border-radius: 10px;
+	display: inline-block;
+	margin: auto;
+	margin-top: 2%;
+	width: 40%;
+	height: 90%;
+}
+
+.project_panel img:hover {
+	border: 5px solid white;
+	margin-top: 1%;
+}
+
+.project_panel:hover {
+	background: rgba(255,255,255, 0.1);
+}
+
+span {
+	font-family: Arial;
+}
