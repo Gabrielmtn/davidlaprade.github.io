@@ -27,20 +27,19 @@ body {
 	max-width: 6vmax;
 	height: 50px; /*fall-back size*/
 	max-height: 6vmax;
-
 	margin: 10px 0 10px 0;
-}
-
-.icon:hover {
-	/*fallback color*/
-	background: rgb(36, 39, 44);	
-	background: rgba(36, 39, 44, 0.5);
 }
 
 .icon img {
 	margin: 0;
 	padding: 0;
 	width: 100%;
+}
+
+.icon:hover {
+	/*fallback color*/
+	background: rgb(36, 39, 44);	
+	background: rgba(36, 39, 44, 0.5);
 }
 
 #content_panel {
@@ -75,6 +74,7 @@ body {
 }
 
 /*essentially creates a max font size*/
+/*see https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries*/
 @media screen and (max-width: 1000px) {
 #heading { 
 	font-size: 50px;
