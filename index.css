@@ -5,13 +5,13 @@
 body {
 	margin: 0;
 	padding: 0;
-	height: 69em;
 	width: 100%;
 }
 
 header {
 	margin-top: 2em;
-	height: 71%;
+	height: 71%; /*fall-back*/
+	height: 51vmax;
 }
 
 header p {
@@ -27,12 +27,13 @@ header p {
 #header_name {
 	font-family: Arial;
 	letter-spacing: 5px;
-	font-size: 150px;	/*fall-back size in case vw's aren't supported*/	
+	font-size: 150px;	/*fall-back size in case vw units aren't supported*/	
 	font-size: 12vmax;
 	font-weight: bold;
 	font-style: italic;
 	color: white;
-	height: 30%;
+	height: 30%;  /*fall-back*/
+	height: 16vmax;
 }
 
 #header_content {
@@ -93,40 +94,37 @@ header p {
 
 .info_box {
 	width: 100%;
-	height: 29%;
+/*don't want to specify the height explicitly, that way it will stretch to fit contents*/
 	margin: 0;
-	/*fallback color*/
-	background-color: #24272c;
+	background-color: #24272c;	/*fallback color*/
 	background-image: linear-gradient(180deg, #24272c, #5D5D5D);
 	box-sizing: border-box;
-	border-top: 20px solid white;
-}
-
-.container {
-	width: 85%;
-	margin: auto;
-	margin-top: 1%;
-	height: 85%;
+	border-top: 15px solid white; /*fallback border*/
+	border-top: 1.5vw solid white;
+	text-align: center;
 }
 
 .info_box_content {
 	margin-top: 1%;
 	margin-left: 1%;
-	width: 32%;
+	width: 32%; /*fallback size*/
+	width: 28vmax;
 	display: inline-block;
-	height: 50%;
 }
 
 .info_box_content span {
 	font-family: 'Ubuntu', sans-serif;
 	color: white;
-	font-size: 3em;
+	font-size: 3em; /*fallback size*/
+	font-size: 3.5vmax;
 }
 
 .info_box_content a img {
 	margin-top: 1%;
-	width: 20%;
-	height: 50%;
+	width: 20%; /*fallback size*/
+	height: 50%; /*fallback size*/
+	width: 5vmax;
+	height: 5vmax;
 }
 
 .info_box_content a img:hover {
@@ -141,9 +139,12 @@ header p {
 	margin-top: 1%;
 	border-radius: 100%;
 	margin-left: 5%;
-	width: 12em;
-	height: 12em;
-	border: .2em solid white;
+	width: 12em; /*fallback size*/
+	width: 13vmax;
+	height: 12em; /*fallback size*/
+	height: 13vmax;
+	border: .2em solid white; /*fallback size*/
+	border: 0.5vmax solid white;
 	display: inline-block;
 
 }
@@ -153,20 +154,5 @@ header p {
 	width: 100%;
 	height: 100%;
 }
-
-
-ul {
-	padding-top: 0;
-	margin-top:0;
-	float: top;
-}
-
-li {
-	font-size: .75em;
-}
-
-/** {
-	border: 2px solid yellow;
-}*/
 
 
