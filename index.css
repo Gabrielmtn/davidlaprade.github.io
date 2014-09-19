@@ -123,8 +123,8 @@ header p {
 	margin-top: 1%;
 	width: 20%; /*fallback size*/
 	height: 50%; /*fallback size*/
-	width: 5vmax;
-	height: 5vmax;
+	width: 10vmin;
+	height: 10vmin;
 }
 
 .info_box_content a img:hover {
