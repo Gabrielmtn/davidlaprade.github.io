@@ -3,8 +3,6 @@
 }
 
 body {
-	font-family: 'Ubuntu', sans-serif;
-	color: white;
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -16,21 +14,25 @@ body {
 	padding: 0;
 	margin-left: 10px;
 	margin-top: 10px;	
-	width: 70px;
-	z-index: 3
+	margin-left: .6vmax;
+	margin-top: .6vmax;	
+	width: 70px; /*fall-back size*/
+	width: 7vmax;
 }
 
 .icon {
 	display: inline-block;
 	border-radius: 10px;
-	padding: 0;
-	margin-left: 13px;
-	margin-top: 13px;
-	border: 6px solid white;
-	width: 60px;
-	height: 60px;
-	/*fallback color*/
-		background: #5D5D5D;	
+	border-radius: 1vmax;	
+	border: 5px solid white; /*fall-back size*/
+	border: 0.5vmax solid white;
+	width: 50px; /*fall-back size*/
+	max-width: 5vmax;
+	height: 50px; /*fall-back size*/
+	max-height: 5vmax;
+	margin: 0 0 10px 0;
+	margin: 0 0 1vmax 0;
+	background: #5D5D5D;		/*fallback color*/
 	background: rgba(93,93,93, 0.6);
 }
 
@@ -47,7 +49,8 @@ body {
 header {
 	font-family: 'Ubuntu', sans-serif;
 	color: white;
-	font-size: 4.5em;
+	font-size: 50px; /*fallback size*/
+	font-size: 5vmax;	
 	height: 100%;
 	width: 100%;
 	box-sizing: border-box;
@@ -55,14 +58,15 @@ header {
 
 header p {
 	margin-top: 7em;
+	margin-top: 60vmin;
 	margin-left: 2%;
 	position: fixed;
 }
 
 #content_bin_1 {
 	float: right;
-	height: 1350px;
 	width: 48%;
+	height: 100%;
 	border-left: 15px solid white;
 	/*fallback color*/
 	background-color: #24272c;
@@ -70,7 +74,10 @@ header p {
 }
 
 #content_bin_1 p {
-	font-size: 30px;
+	font-family: 'Ubuntu', sans-serif;
+	color: white;
+	font-size: 20px;
+	font-size: 2vmax;
 	text-align: left;
 	width: 90%;
 	margin-left: 5%;
@@ -79,18 +86,24 @@ header p {
 
 #head_shot {
 	margin-top: 20px;
-	margin-left: 25%;
+	margin-left: 10vmax;
 	border-radius: 100%;
-	width: 350px;
+	width: 200px;
+	width: 40vmin;
+	max-width: 60%;
 	border: 10px solid white;
+	border: 0.7vmax solid white;
 }
 
 .small_photos {
 	margin-left: 15%;
 	border-radius: 100%;
-	width: 200px;
-	height: 200px;
+	width: 100px;
+	height: 100px;
+	width: 22vmin;
+	height: 22vmin;
 	border: 5px solid white;
+	border: .5vmin solid white;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
 }
