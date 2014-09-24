@@ -9,7 +9,6 @@ body {
 }
 
 header {
-	margin-top: 2em;
 	height: 71%; /*fall-back*/
 	height: 51vmax;
 }
@@ -25,6 +24,8 @@ header p {
 
 
 #header_name {
+	margin-top: 0;
+	padding-top; 0;
 	font-family: Arial;
 	letter-spacing: 5px;
 	font-size: 150px;	/*fall-back size in case vw units aren't supported*/	
@@ -34,6 +35,17 @@ header p {
 	color: white;
 	height: 30%;  /*fall-back*/
 	height: 16vmax;
+	/*http://stackoverflow.com/questions/2293910/css3-transparency-gradient*/
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(255,255,255,0.0)));
+}
+
+/*essentially creates a max font size*/
+/*see https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries*/
+@media screen and (max-width: 1000px) {
+#header_name { 
+	font-size: 50px;
+	font-size: 10vmin; 
+	}
 }
 
 #header_content {
@@ -56,6 +68,11 @@ header p {
 	display: inline-block;
 	margin-left: 2%;
 	margin-right: 2%;
+		/*fallback color*/
+	background: rgb(36, 39, 44);	
+	background: rgba(36, 39, 44, 0.5);
+
+
 
 	/*will set just background opacity to 0.3*/
 	/*background-color: gray;*/
@@ -77,7 +94,7 @@ header p {
 .content_box:hover {
 	/*fallback color*/
 	background: rgb(36, 39, 44);	
-	background: rgba(36, 39, 44, 0.5);
+	background: rgba(36, 39, 44, 0.7);
 }
 
 #scroll_down {
